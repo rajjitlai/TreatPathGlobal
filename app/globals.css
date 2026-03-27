@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors from prompt.md */
+  --primary: #3D2B1F;
+  --accent: #C17F24;
+  --background: #FAF7F2;
+  --text-primary: #1A1208;
+  --text-muted: #7A6652;
+
+  /* Spacing Tokens */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Shadow Depths */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
 }
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+
+  --font-playfair: var(--font-playfair);
+  --font-inter: var(--font-inter);
+  
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+  --spacing-3xl: var(--space-3xl);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 700;
+}
+
+/* Custom Utilities */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--accent), #e59e3d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
